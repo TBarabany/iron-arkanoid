@@ -6,8 +6,8 @@ class Ball {
     this.r = 4
 
     this.vx = 3
-    this.vy = 0
-    this.ay = 1.5
+    this.vy = 3
+    this.ay = 0
 
   }
 
@@ -26,7 +26,6 @@ class Ball {
   }
   
   move() {
-    this.vy += this.ay;
     this.x += this.vx
     this.y += this.vy
 
@@ -44,7 +43,10 @@ class Ball {
 
     if (this.y + this.r >= this.ctx.canvas.height) {
       this.vy *= -1
-      this.y = this.ctx.canvas.height - this.r
+    }
+    
+    if (this.y- this.r <= 0) {
+      this.vy *= -1
     }
   }
 }

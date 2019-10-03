@@ -9,6 +9,7 @@ class Game {
 
   start() {
     this.intervalId = setInterval(() => {
+      this._clear()
       this._draw()
       this._move()
     }, 1000 / 60)
@@ -20,5 +21,14 @@ class Game {
 
   _move() {
     this.ball.move()
+    }
+  
+  _clear() {
+    this.ctx.clearRect(
+      0,
+      0,
+      this.ctx.canvas.width,
+      this.ctx.canvas.height
+    )
     }
 }
