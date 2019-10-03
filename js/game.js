@@ -1,29 +1,24 @@
-class Board {
+class Game {
   constructor(ctx) {
     this.ctx = ctx
-    this.intervalId = null;
-    this.balls = []
+    this.intervalId = null
+    this.ball = new Ball(this.ctx) 
     this.blocks = []
     this.tick = 0
   }
 
   start() {
     this.intervalId = setInterval(() => {
-      this._clear()
       this._draw()
       this._move()
-
-      if (this.tick++ % 50 === 0) {
-        this._addBall()
-      }
-
-      if (this.tick > 100000) {
-        this.tick = 0;
-      }
     }, 1000 / 60)
   }
 
-  _draw () {
-    
+  _draw() {
+    this.ball.draw()
   }
+
+  _move() {
+    this.ball.move()
+    }
 }

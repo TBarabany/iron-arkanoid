@@ -1,5 +1,5 @@
-const canvas = document.getElementById("canvas")
-const game = canvas.getContext("2d")
+const canvas = document.getElementById("game")
+const ctx = canvas.getContext("2d")
 
 
-new Board(game).start()
+new Game(ctx).start()
