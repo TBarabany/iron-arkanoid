@@ -4,7 +4,10 @@ class Game {
     this.intervalId = null
     this.ball = new Ball(this.ctx) 
     this.platform = new Platform(this.ctx)
+    this.brick = new Brick(this.ctx)
     this.bricks = []
+
+
     this.tick = 0
   }
 
@@ -20,6 +23,10 @@ class Game {
   _draw() {
     this.ball.draw()
     this.platform.draw()
+    if (this.brick !== undefined) {
+      this.brick.draw()
+    }
+    
   }
 
   _move() {
@@ -41,5 +48,11 @@ class Game {
       this.ball.bounceY()
       this.ball.speed()
     }
+    if (this.brick !== undefined) {
+      if (this.ball._collide(this.brick)) {
+        this.ball.bounceY()
+        delete this.brick
+      }
+    } 
   }
 }

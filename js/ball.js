@@ -31,24 +31,6 @@ class Ball {
     this._checkCollisions()
   }
 
-  _checkCollisions() {
-    if (this.x + this.r >= this.ctx.canvas.width) {
-      this.bounceX()
-    }
-
-    if (this.x - this.r <= 0) {
-      this.bounceX()
-    }
-
-    if (this.y + this.r >= this.ctx.canvas.height) {
-      this.bounceY()
-    }
-    
-    if (this.y- this.r <= 0) {
-      this.bounceY()
-    }
-  }
-
   bounceY() {
     this.vy *= -1
   }
@@ -57,6 +39,20 @@ class Ball {
     this.vx *= -1
   }
 
+  _checkCollisions() {
+    if (this.x + this.r >= this.ctx.canvas.width) {
+      this.bounceX()
+    }
+
+    if (this.x - this.r <= 0) {
+      this.bounceX()
+    }
+    
+    if (this.y- this.r <= 0) {
+      this.bounceY()
+    }
+  }
+  
   speed() {
     this.vx *= 1.1
     this.vy *= 1.1
