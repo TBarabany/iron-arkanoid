@@ -3,7 +3,7 @@ class Ball {
     this.ctx = ctx
     this.x = 10
     this.y = 10
-    this.r = 4
+    this.r = 10
 
     this.vx = 3
     this.vy = 3

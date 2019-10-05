@@ -3,7 +3,8 @@ class Game {
     this.ctx = ctx
     this.intervalId = null
     this.ball = new Ball(this.ctx) 
-    this.blocks = []
+    this.platform = new Platform(this.ctx)
+    this.bricks = []
     this.tick = 0
   }
 
@@ -17,10 +18,13 @@ class Game {
 
   _draw() {
     this.ball.draw()
+    this.platform.draw()
+    
   }
 
   _move() {
     this.ball.move()
+    this.platform.move()
     }
   
   _clear() {
