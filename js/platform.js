@@ -38,9 +38,9 @@ class Platform {
 
   _applyActions() {    
     if (this.actions.right) {
-      this.x >= this.ctx.canvas.width - this.w? this.x = this.ctx.canvas.width - this.w : this.x += 5
+      this.x >= this.ctx.canvas.width - this.w? this.x = this.ctx.canvas.width - this.w : this.x += 8
     } else if (this.actions.left) {
-      this.x <= 0 ? this.x = 0 : this.x -= 5
+      this.x <= 0 ? this.x = 0 : this.x -= 8
     } 
       this.draw()
     
@@ -56,7 +56,7 @@ class Platform {
         break;
     }
   }
-  
+
 
 }
 
