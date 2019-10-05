@@ -19,6 +19,7 @@ class Platform {
       right: false,
       left: false
     }
+    this._setListeners()
   }
   
   draw() {
@@ -27,6 +28,7 @@ class Platform {
 
   move() {
     this._applyActions()
+    
   }
 
   _setListeners() {
@@ -36,26 +38,26 @@ class Platform {
 
   _applyActions() {    
     if (this.actions.right) {
-      this.x <= 0 ? this.x = 0 : this.x += 5
-      this.draw()
+      this.x >= this.ctx.canvas.width - this.w? this.x = this.ctx.canvas.width - this.w : this.x += 5
     } else if (this.actions.left) {
-      this.x >= this.ctx.canvas.width - this.w? this.x = this.ctx.canvas.width - this.w : this.x -= 5
+      this.x <= 0 ? this.x = 0 : this.x -= 5
+    } 
       this.draw()
-    } else {
-      this.draw()
-    }
+    
   }
 
   _switchAction(key, apply) {
     switch (key) {
-      case RIGHT:
+      case RIGHT_KEY:
         this.actions.right = apply;
         break;
-      case LEFT:
+      case LEFT_KEY:
         this.actions.left = apply;
         break;
     }
   }
+  
 
 }
+
 

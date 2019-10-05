@@ -4,11 +4,10 @@ class Ball {
     this.x = 10
     this.y = 10
     this.r = 10
-
     this.vx = 3
     this.vy = 3
     this.ay = 0
-
+    this.ax = 0
   }
 
   draw() {
@@ -34,19 +33,41 @@ class Ball {
 
   _checkCollisions() {
     if (this.x + this.r >= this.ctx.canvas.width) {
-      this.vx *= -1
+      this.bounceX()
     }
 
     if (this.x - this.r <= 0) {
-      this.vx *= -1
+      this.bounceX()
     }
 
     if (this.y + this.r >= this.ctx.canvas.height) {
-      this.vy *= -1
+      this.bounceY()
     }
     
     if (this.y- this.r <= 0) {
-      this.vy *= -1
+      this.bounceY()
     }
   }
+
+  bounceY() {
+    this.vy *= -1
+  }
+
+  bounceX() {
+    this.vx *= -1
+  }
+
+  speed() {
+    this.vx *= 1.1
+    this.vy *= 1.1
+  }
+
+  _collide(el) {
+    const collideX = el.x + el.w > this.x - this.r && el.x < this.x + this.r
+    const collideY = el.y + el.h > this.y - this.r && el.y < this.y + this.r
+
+    return collideX && collideY
+    
+  }
+  
 }
