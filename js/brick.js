@@ -1,27 +1,33 @@
 class Brick {
 
-  constructor (ctx, bX, bY){
+  constructor (ctx, x, y){
     this.ctx = ctx
 
     this.w = 70
     this.h = 40
 
-    this.bX = bX
-    this.bY = bY
+    this.x = x
+    this.y = y
+
+    this.status = 1
   }
 
   draw() {
-    this.ctx.save()
-    this.ctx.rect(this.bX, this.bY, this.w, this.h)
-    this.ctx.fillStyle = "blue"
 
-    // The below changes the color everytime we draw. Como se podía pintar de un color aleatorio?
-    //this.ctx.fillStyle = 'rgb(' + (Math.floor(Math.random() * 156) + 100) 
-    // + ',' + (Math.floor(Math.random() * 156) + 100) 
-    // + ',' + (Math.floor(Math.random() * 156) + 100) + ')'
-    this.ctx.stroke()
-    this.ctx.fill()
-    this.ctx.restore()
+    if (this.status === 1) {
+      this.ctx.save()
+      this.ctx.rect(this.x, this.y, this.w, this.h)
+      this.ctx.fillStyle = "blue"
+
+      // The below changes the color everytime we draw. Como se podía pintar de un color aleatorio?
+      //this.ctx.fillStyle = 'rgb(' + (Math.floor(Math.random() * 156) + 100) 
+      // + ',' + (Math.floor(Math.random() * 156) + 100) 
+      // + ',' + (Math.floor(Math.random() * 156) + 100) + ')'
+      this.ctx.stroke()
+      this.ctx.fill()
+      this.ctx.restore()
+    }
+    
   }
 
 }

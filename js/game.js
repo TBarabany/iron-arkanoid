@@ -5,13 +5,6 @@ class Game {
     this.ball = new Ball(this.ctx) 
     this.platform = new Platform(this.ctx)
     
-
-    this.bX = 0
-    this.bY = 0 
-    this.bRowCount = 5
-    this.bColCount = 10
-    this.bTopOffset = 10
-    this.bPadding = 5
     
     this.bricks = []
     this._createBricks()
@@ -22,7 +15,7 @@ class Game {
   _createBricks () {
     for(let i = 0; i < 10; i++) {
       for (let j = 0; j < 5; j++) {
-        this.bricks.push(new Brick(this.ctx, 10 +i * 100, 10+j * 60))
+        this.bricks.push(new Brick(this.ctx, 10 + i * 100, 10 + j * 60))
       }
     }
   }
@@ -64,13 +57,13 @@ class Game {
       this.ball.speed()
     }
     
-    for(let i = 0; i < 10; i++) {
-      for (let j = 0; j < 5; j++) {
+    for(let i = 0; i < this.bricks.length; i++) {
+      if (this.ball._collide(this.bricks[i])) {
+        this.bricks[i].status = 0 
         
-        if (this.ball._collide(this.bricks[i][j])) {
-            this.ball.bounceY()
-            delete this.bricks[i][j]
-        }
+        //this.ball.bounceY()
+     
+        
       }
     } 
   }

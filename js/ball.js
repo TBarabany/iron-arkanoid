@@ -59,12 +59,10 @@ class Ball {
   }
 
   _collide(el) {
-    
     const collideX = el.x + el.w > this.x - this.r && el.x < this.x + this.r
     const collideY = el.y + el.h > this.y - this.r && el.y < this.y + this.r
 
     return collideX && collideY
-    
   }
   
 }
