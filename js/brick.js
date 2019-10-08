@@ -9,12 +9,10 @@ class Brick {
     this.x = x
     this.y = y
 
-    this.status = 1
   }
 
   draw() {
 
-    if (this.status === 1) {
       this.ctx.save()
       this.ctx.rect(this.x, this.y, this.w, this.h)
       this.ctx.fillStyle = "blue"
@@ -26,7 +24,7 @@ class Brick {
       this.ctx.stroke()
       this.ctx.fill()
       this.ctx.restore()
-    }
+    
     
   }
 

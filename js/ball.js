@@ -1,8 +1,8 @@
 class Ball {
   constructor (ctx, x, y , r) {
     this.ctx = ctx
-    this.x = 10
-    this.y = 10
+    this.x = 0.5 * this.ctx.canvas.width
+    this.y = this.ctx.canvas.height - 30
     this.r = 10
     this.vx = 3
     this.vy = 3
