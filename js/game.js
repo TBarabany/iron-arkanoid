@@ -5,10 +5,12 @@ class Game {
     this.ball = new Ball(this.ctx) 
     this.platform = new Platform(this.ctx)
     
-    
+    this.score = 0
+
+    this.totalBricks = 0
     this.bricks = []
     this._createBricks()
-
+  
     this.tick = 0
   }
 
@@ -18,6 +20,7 @@ class Game {
         this.bricks.push(new Brick(this.ctx, 10 + i * 100, 10 + j * 60))
       }
     }
+    this.totalBricks = this.bricks.length
   }
 
   start() {
@@ -26,6 +29,7 @@ class Game {
       this._draw()
       this._move()
       this._checkCollisions()
+      this._gameOver()
     }, 1000 / 60)
   }
 
@@ -61,8 +65,32 @@ class Game {
       if (this.ball._collide(this.bricks[i])) {
         this.bricks.splice(i,1)
         this.ball.bounceY()
+
+        this.score ++
+
+        console.log(this.score)
       }
     } 
   }
-  
+  _gameOver() {
+    if(this.ball.y + this.ball.r >= this.ctx.canvas.height) { 
+      clearInterval(this.intervalId)
+      this.ctx.font = "40px Comic Sans MS";
+      this.ctx.textAlign = "center";
+      this.ctx.fillText(
+      "GAME OVER",
+      this.ctx.canvas.width / 2,
+      this.ctx.canvas.height / 2 )
+    }
+    
+    if (this.score === this.totalBricks) {
+      clearInterval(this.intervalId)
+      this.ctx.font = "40px Comic Sans MS";
+      this.ctx.textAlign = "center";
+      this.ctx.fillText(
+      "You Win",
+      this.ctx.canvas.width / 2,
+      this.ctx.canvas.height / 2 )
+    } 
+  }
 }

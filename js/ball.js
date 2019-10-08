@@ -52,10 +52,11 @@ class Ball {
       this.bounceY()
     }
   }
+
   
   speed() {
-    this.vx *= 1.1
-    this.vy *= 1.1
+    this.vx *= 1.05
+    this.vy *= 1.05
   }
 
   _collide(el) {
