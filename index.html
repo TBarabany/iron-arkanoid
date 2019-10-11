@@ -7,22 +7,41 @@
     <link href="./styles/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="title">
-      <h1>ARKANOID</h1>          
+    <div id="head">
+      <img id = "logo" src = "./images/Arkanoid-Logo-New.png">     
     </div>
-    <div>
-      <canvas id="game" width="1000" height="600">
-        <script src="./js/keys.js"></script>
-        <script src="./js/platform.js"></script>
-        <script src="./js/ball.js"></script>
-        <script src="./js/brick.js"></script>
-        <script src="./js/game.js"></script>
-        "<script src="./js/script.js"></script>
-    </div>
-    
-    <div id= "counter">
-      <h2>Score:</h2> 
+    <div id = "gameBox">
+      <canvas id="game" width="1000" height="600">   
     </div>
 
+      
+    <div id= "counter">
+      <h2>Score:</h2> 
+
+      <button id="start-button">Start</button>
+    </div>
+    
+      
+    
+    <audio id = "startAudio" >
+      <source src="./audio/Game_Start.ogg" type="audio/ogg">
+    </audio>
+
+    <audio id = "collisionAudio" >
+      <source src="./audio/Collision.wav" type="audio/wav">
+    </audio>
+
+    <audio id = "gameOverAudio" >
+      <source src="./audio/Game_Over.ogg" type="audio/ogg">
+    </audio>
+   
+  
+
+    <script src="./js/keys.js"></script>
+    <script src="./js/platform.js"></script>
+    <script src="./js/ball.js"></script>
+    <script src="./js/brick.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

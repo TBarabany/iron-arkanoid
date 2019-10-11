@@ -12,6 +12,10 @@ class Game {
     this._createBricks()
   
     this.tick = 0
+
+    this.startAudio = document.getElementById("startAudio")
+    this.gameOverAudio = document.getElementById("gameOverAudio")
+    this.collisionAudio = document.getElementById("collisionAudio")
   }
 
   _createBricks () {
@@ -24,6 +28,7 @@ class Game {
   }
 
   start() {
+    this.startAudio.play()
     this.intervalId = setInterval(() => {
       this._clear()
       this._draw()
@@ -56,25 +61,34 @@ class Game {
   }
 
   _checkCollisions() {
+    
+
     if (this.ball._collide(this.platform)) {
       this.ball.bounceY()
       this.ball.speed()
+      this.collisionAudio.play()
+    
     }
     
     for(let i = 0; i < this.bricks.length; i++) {
       if (this.ball._collide(this.bricks[i])) {
+        this.collisionAudio.play()
         this.bricks.splice(i,1)
         this.ball.bounceY()
 
         this.score ++
-
         console.log(this.score)
+        
       }
     } 
   }
   _gameOver() {
     if(this.ball.y + this.ball.r >= this.ctx.canvas.height) { 
       clearInterval(this.intervalId)
+
+      this.startAudio.pause()
+      this.gameOverAudio.play()
+
       this.ctx.font = "40px Comic Sans MS";
       this.ctx.textAlign = "center";
       this.ctx.fillText(
@@ -85,6 +99,9 @@ class Game {
     
     if (this.score === this.totalBricks) {
       clearInterval(this.intervalId)
+
+      this.startAudio.pause()
+
       this.ctx.font = "40px Comic Sans MS";
       this.ctx.textAlign = "center";
       this.ctx.fillText(

@@ -1,5 +1,45 @@
+
+body {
+  background-image: url('../images/bacgroundSunset.png');
+  background-size: contain;
+}
+#head {
+  width: 1000px;
+  height: 380px;
+}
+
+#logo{
+  width: 100%;
+  padding: 0px 250px;
+}
+
+#gameBox{
+  width: 70%;
+  float: left;
+}
+
 #game {
   border-style: outset;
   border-width: 3px;
-  border-block-color: grey; 
+  border-block-color: orange;
+  border-color: tomato;
+  margin: 20px;
+}
+
+#counter {
+float: right;
+width: 20%;
+  
+}
+
+#start-button {
+  width: 150px;
+  height: 50px;
+  background-color: orange;
+  font-size: 20px ;
+  border-radius: 12px;
+  box-shadow: 0 5px #666;
+  color:white;
+  transform: translateY(4px);
+
 }
