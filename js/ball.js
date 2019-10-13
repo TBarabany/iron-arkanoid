@@ -21,6 +21,7 @@ class Ball {
       false
     );
     this.ctx.fill();
+    this.color = "blue"
     this.ctx.closePath();
   }
   

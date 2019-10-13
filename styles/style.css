@@ -3,19 +3,21 @@ body {
   background-image: url('../images/bacgroundSunset.png');
   background-size: contain;
 }
+
 #head {
-  width: 1000px;
+  width:800pt;
   height: 380px;
 }
 
 #logo{
   width: 100%;
-  padding: 0px 250px;
+  padding: 0px 160px;
 }
 
 #gameBox{
   width: 70%;
   float: left;
+  position: ;
 }
 
 #game {
@@ -27,9 +29,21 @@ body {
 }
 
 #counter {
-float: right;
-width: 20%;
+  position: fixed;
+  bottom: 150;
+  right: 0;
+  opacity: 0.8;
   
+  padding: 40px;
+  width: 250px;
+  
+}
+
+#score-display{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color:purple;
+  font-size: 50px;
+
 }
 
 #start-button {

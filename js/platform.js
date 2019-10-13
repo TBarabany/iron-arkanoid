@@ -24,6 +24,7 @@ class Platform {
   
   draw() {
     this.ctx.fillRect(this.x, this.y, this.w, this.h)
+    
   }
 
   move() {

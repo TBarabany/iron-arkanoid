@@ -7,21 +7,22 @@
     <link href="./styles/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="head">
-      <img id = "logo" src = "./images/Arkanoid-Logo-New.png">     
-    </div>
-    <div id = "gameBox">
-      <canvas id="game" width="1000" height="600">   
-    </div>
+    <div id = "fullGame">
+      <div id="head">
+        <img id = "logo" src = "./images/Arkanoid-Logo-New.png">     
+      </div>
+      <div id = "gameBox">
+        <canvas id="game" width="1000" height="600">   
+      </div>
 
-      
-    <div id= "counter">
-      <h2>Score:</h2> 
-
-      <button id="start-button">Start</button>
-    </div>
+        
+      <div id= "counter">
+        <h1 id = "score-display">Score: 0 </h1>
     
+        <button id="start-button">Start</button>
+      </div>
       
+  </div>   
     
     <audio id = "startAudio" >
       <source src="./audio/Game_Start.ogg" type="audio/ogg">
